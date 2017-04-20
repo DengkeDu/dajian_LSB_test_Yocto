@@ -1,2 +1,22 @@
 1. create a apache web server on local to share files
 2. download the necessary files from http://ftp.linuxfoundation.org/pub/lsb/
+
+LSB for yocto
+
+local.conf:
+
+    DISTRO ?= "poky-lsb"
+    IMAGE_ROOTFS_EXTRA_SPACE = "5242880"
+
+bblayers.conf:
+
+    add the path to meta-qt4 to BBLAYERS
+
+building:
+
+    bitbake core-image-lsb
+
+runing:
+
+    runqemu qemux86-64 slirp nographic
+    LSB_Test.sh
